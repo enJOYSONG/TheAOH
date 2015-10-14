@@ -138,10 +138,18 @@
     <ClInclude Include="Base\BaseAliveObject.h" />
     <ClInclude Include="Base\BaseGameWorldPlace.h" />
     <ClInclude Include="Hero\AliveObjectHero.h" />
+    <ClInclude Include="Manager\PlaceManager.h" />
+    <ClInclude Include="Place\GamePlaceDunjeon.h" />
+    <ClInclude Include="Place\GamePlaceInn.h" />
+    <ClInclude Include="Place\GamePlacePub.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Hero\AliveObjectHero.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Manager\PlaceManager.cpp" />
+    <ClCompile Include="Place\GamePlaceDunjeon.cpp" />
+    <ClCompile Include="Place\GamePlaceInn.cpp" />
+    <ClCompile Include="Place\GamePlacePub.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
