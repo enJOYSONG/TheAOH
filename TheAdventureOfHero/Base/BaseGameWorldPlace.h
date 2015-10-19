@@ -1,5 +1,4 @@
-#ifndef BASEGAMEWORLDPLACE_H
-#define BASEGAMEWORLDPLACE_H
+#pragma once
 //GamePlace interface
 //set place type by enum
 enum PlaceType {
@@ -10,7 +9,6 @@ enum PlaceType {
 };
 
 class IBaseGameWorldPlace {
-protected:
-	PlaceType place_type_;
+public:
+	virtual PlaceType getType()=0;
 };
-#endif

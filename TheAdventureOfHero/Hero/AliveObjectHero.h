@@ -18,6 +18,16 @@ class AliveObjectHero : public IBaseAliveObject {
 	// Forcibly move to village when SP 0,
 	// Fail mission when HP 0 or Gold ran out
 	void CheckState();
+
+private:
+//capabilities 
+	int HP_;
+	int SP_;
+	int ATK_;
+	int DEF_;
+	int LEV_;
+//items
+	int Gold_;
 };
 
 #endif

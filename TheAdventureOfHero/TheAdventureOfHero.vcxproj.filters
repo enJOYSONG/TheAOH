@@ -21,6 +21,9 @@
     <Filter Include="소스 파일\Place">
       <UniqueIdentifier>{d871faed-cf88-42bf-8314-ac761340be5b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\Monster">
+      <UniqueIdentifier>{b79bd7e5-e8b5-46b7-bfb6-ce369003ecde}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Base\BaseAliveObject.h">

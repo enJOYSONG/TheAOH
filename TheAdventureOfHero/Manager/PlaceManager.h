@@ -1,9 +1,6 @@
 #include <map>
 
 class IBaseGameWorldPlace;
-class GamePlaceInn;
-class GamePlacePub;
-class GamePlaceDunjeon;
 class PlaceManager {
 public:
 	PlaceManager(){};
@@ -11,8 +8,8 @@ public:
 	void Init();
 	
 private:
-	GamePlaceInn* placeInn_;
-	GamePlacePub* placePub_;
-	GamePlaceDunjeon* placeDunjeon_;
+	IBaseGameWorldPlace* placeInn_;
+	IBaseGameWorldPlace* placePub_;
+	IBaseGameWorldPlace* placeDunjeon_;
 	std::map<int ,IBaseGameWorldPlace*> place_map_;
 };
