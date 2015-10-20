@@ -31,6 +31,7 @@ public:
 	
 	//return place by place type enum
 	IBaseGameWorldPlace* GetPlaceByKey(int place_type);
+	void GoPlaceInn();
 
 private:
 	static PlaceManager* sPlaceManager;

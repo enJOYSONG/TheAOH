@@ -36,3 +36,8 @@ IBaseGameWorldPlace* PlaceManager::GetPlaceByKey(int place_type) {
 			break;
 	};
 };
+
+void PlaceManager::GoPlaceInn() {
+	EntityManager* entity_manager = EntityManager::GetInstance();
+	cout<<entity_manager->GetHeroName()<<" 왔다! 여관!"<<endl;
+};

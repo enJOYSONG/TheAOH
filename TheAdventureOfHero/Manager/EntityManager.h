@@ -21,11 +21,14 @@ public:
 			sEntityManager = NULL;
 		}
 	};
+	
+	const char* GetHeroName();
+	
 private:
 	static EntityManager* sEntityManager;
 	EntityManager(){};
 	~EntityManager(){};
 	void Init();
-
 	AliveObjectHero* first_hero_;
+	
 };

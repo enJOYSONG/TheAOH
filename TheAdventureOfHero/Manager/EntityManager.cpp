@@ -8,4 +8,8 @@ EntityManager* EntityManager::sEntityManager = NULL;
 
 void EntityManager::Init() {
 	first_hero_ = new AliveObjectHero;
-}
+};
+
+const char* EntityManager::GetHeroName() {
+		return first_hero_->hero_name_;
+};

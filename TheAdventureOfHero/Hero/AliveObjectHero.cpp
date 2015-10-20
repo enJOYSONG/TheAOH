@@ -9,8 +9,9 @@ AliveObjectHero::AliveObjectHero() {
 	DEF_ = 10;
 	LEV_ = 1;
 	Gold_ = 100;
+	hero_name_ = "용사 1";
 
-	cout<<"용사생성 뿅!"<<endl;
+	cout<<hero_name_<<" 생성"<<endl;
 };
 
 AliveObjectHero::AliveObjectHero(int HP, int SP, int ATK, int DEF, int LEV, int Gold) {

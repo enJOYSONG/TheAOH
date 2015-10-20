@@ -24,5 +24,6 @@ void GameManager::ShowAndSelectMenu() {
 	for( int i = 1 ; i <= place_manager_->GetPlaceMapSize() ; i++ ) {
 		place_manager_->GetPlaceByKey(i)->ShowPlaceName();
 	}
-	
+
+	place_manager_->GoPlaceInn();
 };

@@ -18,6 +18,7 @@ public:
 	// Forcibly move to village when SP 0,
 	// Fail mission when HP 0 or Gold ran out
 	void CheckState(int place_type);
+	const char* hero_name_;
 
 private:
 //capabilities 
