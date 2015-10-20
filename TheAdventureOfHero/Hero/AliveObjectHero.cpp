@@ -1,5 +1,7 @@
+#include <iostream>
 #include "AliveObjectHero.h"
 
+using namespace std;
 AliveObjectHero::AliveObjectHero() {
 	HP_ = 100;
 	SP_ = 100;
@@ -7,6 +9,8 @@ AliveObjectHero::AliveObjectHero() {
 	DEF_ = 10;
 	LEV_ = 1;
 	Gold_ = 100;
+
+	cout<<"¿ë»ç»ý¼º »Ð!"<<endl;
 };
 
 AliveObjectHero::AliveObjectHero(int HP, int SP, int ATK, int DEF, int LEV, int Gold) {
@@ -34,6 +38,6 @@ bool AliveObjectHero::RunAway() {
 	return true; 
 };
 
-void AliveObjectHero::CheckState() {
-
+void AliveObjectHero::CheckState(int place_type) {
+	cout << place_type << endl;
 };

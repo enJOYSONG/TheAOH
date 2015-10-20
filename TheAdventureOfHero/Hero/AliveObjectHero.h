@@ -1,14 +1,14 @@
 //For Alive Object;Hero.
 
-#ifndef ALIVE_OBJECT_HERO_H
-#define ALIVE_OBJECT_HERO_H
+#pragma once
 
 #include "../Base/BaseAliveObject.h"
 
 class AliveObjectHero : public IBaseAliveObject {
+public:
 	AliveObjectHero();
 	AliveObjectHero(int HP, int SP, int ATK, int DEF, int LEV, int Gold);
-	~AliveObjectHero();
+	virtual ~AliveObjectHero();
 
 	virtual bool AttackNormal();
 	bool AttackSpecial();
@@ -17,7 +17,7 @@ class AliveObjectHero : public IBaseAliveObject {
 	// When hero act end, check state
 	// Forcibly move to village when SP 0,
 	// Fail mission when HP 0 or Gold ran out
-	void CheckState();
+	void CheckState(int place_type);
 
 private:
 //capabilities 
@@ -29,5 +29,3 @@ private:
 //items
 	int Gold_;
 };
-
-#endif

@@ -1,7 +1,7 @@
 #pragma once
 //GamePlace interface
 //set place type by enum
-enum PlaceType {
+enum PLACE_TYPE {
 	NONE_PLACE = 0,
 	PLACE_INN = 1,
 	PLACE_DUNGEON = 2,
@@ -10,5 +10,6 @@ enum PlaceType {
 
 class IBaseGameWorldPlace {
 public:
-	virtual PlaceType getType()=0;
+	virtual PLACE_TYPE getType()=0;
+	virtual void ShowPlaceName()=0;
 };

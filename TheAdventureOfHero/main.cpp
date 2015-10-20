@@ -1,8 +1,11 @@
 #include <iostream>
-#include "Manager/PlaceManager.h"
+#include "Manager/GameManager.h"
 using namespace std;
 
 int main() {
-	PlaceManager place_manager;
-	place_manager.Init();
+	GameManager game_manager;
+
+	game_manager.Init();
+
+	game_manager.ShowAndSelectMenu();
 };

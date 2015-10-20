@@ -5,7 +5,9 @@ class GamePlaceInn : public IBaseGameWorldPlace {
 public :
 	GamePlaceInn();
 	virtual ~GamePlaceInn();
-	inline PlaceType getType() { return place_type_; }
+	inline PLACE_TYPE getType() { return place_type_; }
+	virtual void ShowPlaceName();
+
 private:
-	PlaceType place_type_;
+	PLACE_TYPE place_type_;
 };

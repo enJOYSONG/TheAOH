@@ -47,6 +47,15 @@
     <ClInclude Include="Place\GamePlacePub.h">
       <Filter>소스 파일\Place</Filter>
     </ClInclude>
+    <ClInclude Include="Monster\AliveObjectMonster.h">
+      <Filter>소스 파일\Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="Manager\GameManager.h">
+      <Filter>소스 파일\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Manager\EntityManager.h">
+      <Filter>소스 파일\Manager</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Hero\AliveObjectHero.cpp">
@@ -66,6 +75,15 @@
     </ClCompile>
     <ClCompile Include="Place\GamePlacePub.cpp">
       <Filter>소스 파일\Place</Filter>
+    </ClCompile>
+    <ClCompile Include="Monster\AliveObjectMonster.cpp">
+      <Filter>소스 파일\Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="Manager\GameManager.cpp">
+      <Filter>소스 파일\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Manager\EntityManager.cpp">
+      <Filter>소스 파일\Manager</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
