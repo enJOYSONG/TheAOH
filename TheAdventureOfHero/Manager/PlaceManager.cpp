@@ -13,13 +13,13 @@ PlaceManager* PlaceManager::sPlaceManager = NULL;
 
 void PlaceManager::Init() {
 	IBaseGameWorldPlace* placeInn_ = new GamePlaceInn();
-	place_map_.insert(map< int, IBaseGameWorldPlace* >::value_type(1, placeInn_));
+	place_map_[PLACE_INN] = placeInn_;
 
 	IBaseGameWorldPlace* placeDunjeon_ = new GamePlaceDunjeon();
-	place_map_.insert(map< int, IBaseGameWorldPlace* >::value_type(2, placeDunjeon_));
+	place_map_[PLACE_DUNGEON] = placeDunjeon_;
 
 	IBaseGameWorldPlace* placePub_ = new GamePlacePub();
-	place_map_.insert(map< int, IBaseGameWorldPlace* >::value_type(3, placePub_));
+	place_map_[PLACE_PUB] = placePub_;
 };
 
 IBaseGameWorldPlace* PlaceManager::GetPlaceByKey(int place_type) {
@@ -37,7 +37,7 @@ IBaseGameWorldPlace* PlaceManager::GetPlaceByKey(int place_type) {
 	};
 };
 
-void PlaceManager::GoPlaceInn() {
-	EntityManager* entity_manager = EntityManager::GetInstance();
-	cout<<entity_manager->GetHeroName()<<" 왔다! 여관!"<<endl;
+void PlaceManager::GoPlaceByKey(int place_type) {
+	IBaseGameWorldPlace* place = place_map_[place_type];
+	place->EnterPlace();
 };

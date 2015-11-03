@@ -7,5 +7,8 @@ int main() {
 
 	game_manager.Init();
 
-	game_manager.ShowAndSelectMenu();
+	while(true) {
+		game_manager.ShowMenu();
+		game_manager.SelectMenu();
+	}
 };

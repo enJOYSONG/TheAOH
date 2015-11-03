@@ -12,4 +12,5 @@ class IBaseGameWorldPlace {
 public:
 	virtual PLACE_TYPE getType()=0;
 	virtual void ShowPlaceName()=0;
+	virtual void EnterPlace()=0;
 };

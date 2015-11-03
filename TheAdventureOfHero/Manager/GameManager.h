@@ -10,7 +10,8 @@ public:
 	~GameManager();
 	void Init();
 
-	void ShowAndSelectMenu();
+	void ShowMenu();
+	void SelectMenu();
 
 private:
 	PlaceManager* place_manager_;

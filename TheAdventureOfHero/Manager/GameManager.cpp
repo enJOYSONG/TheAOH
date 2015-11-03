@@ -18,12 +18,25 @@ void GameManager::Init() {
 	entity_manager_ = EntityManager::GetInstance();
 };
 
-void GameManager::ShowAndSelectMenu() {
+void GameManager::ShowMenu() {
 	cout<<"용사의 모험 ~ The Adventure Of Hero ~"<<endl;
 	
 	for( int i = 1 ; i <= place_manager_->GetPlaceMapSize() ; i++ ) {
 		place_manager_->GetPlaceByKey(i)->ShowPlaceName();
 	}
+};
 
-	place_manager_->GoPlaceInn();
+void GameManager::SelectMenu() {
+	int menu = 0;
+	cin >> menu;
+
+	switch(menu) {
+		case PLACE_INN:
+		case PLACE_DUNGEON:
+		case PLACE_PUB:
+			place_manager_->GoPlaceByKey(menu);
+			break;
+		default:
+			cout<<"다시 선택"<<endl;
+	}
 };

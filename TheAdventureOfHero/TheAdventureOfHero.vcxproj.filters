@@ -61,9 +61,6 @@
     <ClCompile Include="Hero\AliveObjectHero.cpp">
       <Filter>소스 파일\Hero</Filter>
     </ClCompile>
-    <ClCompile Include="main.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="Manager\PlaceManager.cpp">
       <Filter>소스 파일\Manager</Filter>
     </ClCompile>
@@ -84,6 +81,9 @@
     </ClCompile>
     <ClCompile Include="Manager\EntityManager.cpp">
       <Filter>소스 파일\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
