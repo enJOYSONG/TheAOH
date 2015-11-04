@@ -38,7 +38,3 @@ bool AliveObjectHero::AttackSpecial() {
 bool AliveObjectHero::RunAway() {
 	return true; 
 };
-
-void AliveObjectHero::CheckState(int place_type) {
-	cout << place_type << endl;
-};

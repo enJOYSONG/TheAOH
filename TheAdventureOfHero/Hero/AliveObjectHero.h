@@ -14,11 +14,30 @@ public:
 	bool AttackSpecial();
 	bool RunAway();
 	
-	// When hero act end, check state
+	// return hero name
+	inline const char* GetName() { return hero_name_; }
+
 	// Forcibly move to village when SP 0,
 	// Fail mission when HP 0 or Gold ran out
-	void CheckState(int place_type);
-	const char* hero_name_;
+
+	//getter setter
+	inline int GetHP() { return HP_; }
+	inline void SetHP(int HP) { HP_ = HP; }
+
+	inline int GetSP() { return SP_; }
+	inline void SetSP(int SP) { SP_ = SP; }
+
+	inline int GetAttack() { return ATK_; }
+	inline void SetAttack(int ATK) { ATK_ = ATK; }
+
+	inline int GetDeffense() { return DEF_; }
+	inline void SetDeffense(int DEF) { DEF_ = DEF; }
+
+	inline int GetLevel() { return LEV_; }
+	inline void SetLevel(int LEV) { LEV_ = LEV; }
+
+	inline int GetGold() { return Gold_; }
+	inline void SetGold(int GOLD) { Gold_ = GOLD; }
 
 private:
 //capabilities 
@@ -29,4 +48,6 @@ private:
 	int LEV_;
 //items
 	int Gold_;
+//Name
+	const char* hero_name_;
 };
