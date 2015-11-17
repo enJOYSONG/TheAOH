@@ -3,8 +3,8 @@
 #include "PlaceManager.h"
 #include "EntityManager.h"
 #include "../Base/BaseGameWorldPlace.h"
-
 using namespace std;
+
 GameManager::GameManager() {
 
 };

@@ -14,6 +14,23 @@ const char* EntityManager::GetHeroName() {
 	return first_hero_->GetName();
 };
 
+int EntityManager::GetHeroHPAll() {
+	return first_hero_->GetHPAll();
+};
+
+void EntityManager::SetHeroHPAll(int HP_All) {
+	first_hero_->SetHPAll(HP_All);
+};
+
+int EntityManager::GetHeroSPAll() {
+	return first_hero_->GetSPAll();
+};
+
+void EntityManager::SetHeroSPAll(int SP_All) {
+	first_hero_->SetSPAll(SP_All);
+};
+
+
 int EntityManager::GetHeroHP() {
 	return first_hero_->GetHP();
 };

@@ -6,13 +6,13 @@ using namespace std;
 GamePlaceInn::GamePlaceInn() {
 	place_type_ = PLACE_INN;
 	pay_ = 10;
-	recovery_trend_ = 20;
+	recovery_trend_sp_ = 20;
 };
 
-GamePlaceInn::GamePlaceInn(int pay, int recovery_trend) {
+GamePlaceInn::GamePlaceInn(int pay, int recovery_trend_sp) {
 	place_type_ = PLACE_INN;
 	pay_ = pay;
-	recovery_trend_ = recovery_trend;
+	recovery_trend_sp_ = recovery_trend_sp;
 };
 
 GamePlaceInn::~GamePlaceInn() {
@@ -50,21 +50,27 @@ void GamePlaceInn::EnterPlace() {
 };
 
 void GamePlaceInn::HealSP() {
-	EntityManager* entity_manager = EntityManager::GetInstance();
-	int hero_gold = entity_manager->GetHeroGold();
-	int hero_sp = entity_manager->GetHeroSP();
+	int hero_gold = EntityManager::GetInstance()->GetHeroGold();
+	int hero_sp = EntityManager::GetInstance()->GetHeroSP();
+	//회복할 sp양
+	int hero_sp_all = EntityManager::GetInstance()->GetHeroSPAll();
 
-	cout<<entity_manager->GetHeroName()<<endl;
+	cout<<EntityManager::GetInstance()->GetHeroName()<<endl;
 	cout<<"Gold : "<<hero_gold<<endl;
 	cout<<"SP : "<<hero_sp<<endl;
 	
-	//현재 sp와 회복세를 더한값
-	entity_manager->SetHeroSP(hero_sp + recovery_trend_);
-	//골드차감
-	entity_manager->SetHeroGold(hero_gold - pay_);
-	cout<<"SP 회복"<<endl;
+	if( hero_gold > pay_ ) {
+		//SP 회복
+		EntityManager::GetInstance()->SetHeroSP(hero_sp_all);
+		//골드차감
+		EntityManager::GetInstance()->SetHeroGold(hero_gold - pay_);
+		cout<<"SP 회복"<<endl;
 
-	cout<<"Gold : "<<entity_manager->GetHeroGold()<<endl;
-	cout<<"SP : "<<entity_manager->GetHeroSP()<<endl;
-	EnterPlace();
+		cout<<"Gold : "<<EntityManager::GetInstance()->GetHeroGold()<<endl;
+		cout<<"SP : "<<EntityManager::GetInstance()->GetHeroSP()<<endl;
+		EnterPlace();
+	}
+	else {
+		cout<<"골드가 부족합니다."<<endl;
+	}
 };

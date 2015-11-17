@@ -1,6 +1,5 @@
 #include <iostream>
 #include "GamePlaceDunjeon.h"
-#include "../Manager/EntityManager.h"
 using namespace std;
 
 GamePlaceDunjeon::GamePlaceDunjeon() {
@@ -17,4 +16,8 @@ void GamePlaceDunjeon::ShowPlaceName() {
 
 void GamePlaceDunjeon::EnterPlace() {
 	cout << "~~~~~~~~´øÀü~~~~~~~~" <<endl;
-}
+};
+
+bool GamePlaceDunjeon::Fight() {
+	return true;
+};

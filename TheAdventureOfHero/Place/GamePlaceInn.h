@@ -4,7 +4,7 @@
 class GamePlaceInn : public IBaseGameWorldPlace {
 public :
 	GamePlaceInn();
-	GamePlaceInn(int pay, int recovery_trend=0);
+	GamePlaceInn(int pay, int recovery_trend_sp=0);
 	virtual ~GamePlaceInn();
 	inline PLACE_TYPE getType() { return place_type_; }
 	virtual void ShowPlaceName();
@@ -19,6 +19,6 @@ private:
 	int pay_;
 	//sp 회복량
 	//기본 20(임시)
-	int recovery_trend_;
+	int recovery_trend_sp_;
 
 };

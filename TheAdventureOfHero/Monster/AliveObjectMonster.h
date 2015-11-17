@@ -12,7 +12,7 @@ public:
 	virtual bool AttackNormal();
 
 	// when HP 0 monster dead
-	void CheckState();
+	virtual bool CheckState();
 
 private:
 //capabilities 

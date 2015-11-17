@@ -5,5 +5,6 @@
 class IBaseAliveObject {
 public:
 	virtual bool AttackNormal()=0;
+	virtual bool CheckState()=0;
 	
 };

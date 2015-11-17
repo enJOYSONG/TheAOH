@@ -20,6 +20,6 @@ bool AliveObjectMonster::AttackNormal() {
 	return true;
 };
 
-void AliveObjectMonster::CheckState() {
-
+bool AliveObjectMonster::CheckState() {
+	return true;
 };

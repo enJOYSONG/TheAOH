@@ -25,6 +25,12 @@ public:
 	const char* GetHeroName();
 
 	//Hero stat getter setter
+	int GetHeroHPAll();
+	void SetHeroHPAll(int HP_All);
+
+	int GetHeroSPAll();
+	void SetHeroSPAll(int SP_All);
+
 	int GetHeroHP();
 	void SetHeroHP(int HP);
 

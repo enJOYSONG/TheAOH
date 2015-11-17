@@ -9,6 +9,8 @@ public :
 	virtual void ShowPlaceName();
 	virtual void EnterPlace();
 
+	bool Fight();
 private:
 	PLACE_TYPE place_type_;
+
 };

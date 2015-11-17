@@ -11,6 +11,7 @@ public:
 	virtual ~AliveObjectHero();
 
 	virtual bool AttackNormal();
+	virtual bool CheckState();
 	bool AttackSpecial();
 	bool RunAway();
 	
@@ -21,6 +22,12 @@ public:
 	// Fail mission when HP 0 or Gold ran out
 
 	//getter setter
+	inline int GetHPAll() { return HP_ALL_; }
+	inline void SetHPAll(int HP_All) { HP_ALL_ = HP_All; }
+
+	inline int GetSPAll() { return SP_ALL_; }
+	inline void SetSPAll(int SP_All) { SP_ALL_ = SP_All; }
+
 	inline int GetHP() { return HP_; }
 	inline void SetHP(int HP) { HP_ = HP; }
 
@@ -40,6 +47,10 @@ public:
 	inline void SetGold(int GOLD) { Gold_ = GOLD; }
 
 private:
+//capabilities save
+	int HP_ALL_;
+	int SP_ALL_;
+
 //capabilities 
 	int HP_;
 	int SP_;
