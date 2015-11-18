@@ -49,24 +49,24 @@ void GamePlacePub::EnterPlace() {
 }
 
 void GamePlacePub::HealHP() {
-	int hero_gold = EntityManager::GetInstance()->GetHeroGold();
-	int hero_hp = EntityManager::GetInstance()->GetHeroHP();
+	int hero_gold = ENTITY_MANAGER()->GetHeroGold();
+	int hero_hp = ENTITY_MANAGER()->GetHeroHP();
 	//회복할 hp양
-	int hero_hp_all = EntityManager::GetInstance()->GetHeroHPAll();
+	int hero_hp_all = ENTITY_MANAGER()->GetHeroHPAll();
 
-	cout<<EntityManager::GetInstance()->GetHeroName()<<endl;
+	cout<<ENTITY_MANAGER()->GetHeroName()<<endl;
 	cout<<"Gold : "<<hero_gold<<endl;
 	cout<<"HP : "<<hero_hp<<endl;
 	
 	if( hero_gold > pay_ ) {
 		//HP 회복
-		EntityManager::GetInstance()->SetHeroHP(hero_hp_all);
+		ENTITY_MANAGER()->SetHeroHP(hero_hp_all);
 		//골드차감
-		EntityManager::GetInstance()->SetHeroGold(hero_gold - pay_);
+		ENTITY_MANAGER()->SetHeroGold(hero_gold - pay_);
 		cout<<"HP 회복"<<endl;
 
-		cout<<"Gold : "<<EntityManager::GetInstance()->GetHeroGold()<<endl;
-		cout<<"SP : "<<EntityManager::GetInstance()->GetHeroHP()<<endl;
+		cout<<"Gold : "<<ENTITY_MANAGER()->GetHeroGold()<<endl;
+		cout<<"SP : "<<ENTITY_MANAGER()->GetHeroHP()<<endl;
 		EnterPlace();
 	}
 	else {

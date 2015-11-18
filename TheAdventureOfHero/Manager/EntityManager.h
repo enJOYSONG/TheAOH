@@ -5,6 +5,9 @@
 // Create Monster Object by Hero's level
 class AliveObjectHero;
 class AliveObjectMonster;
+
+#define ENTITY_MANAGER() EntityManager::GetInstance()
+
 class EntityManager {
 public:
 	inline static EntityManager* GetInstance() {

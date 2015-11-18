@@ -50,7 +50,7 @@ void GamePlaceInn::EnterPlace() {
 };
 
 void GamePlaceInn::HealSP() {
-	int hero_gold = EntityManager::GetInstance()->GetHeroGold();
+	int hero_gold = ENTITY_MANAGER()->GetHeroGold();
 	int hero_sp = EntityManager::GetInstance()->GetHeroSP();
 	//회복할 sp양
 	int hero_sp_all = EntityManager::GetInstance()->GetHeroSPAll();
