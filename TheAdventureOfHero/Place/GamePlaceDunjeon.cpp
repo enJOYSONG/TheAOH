@@ -1,5 +1,7 @@
 #include <iostream>
 #include "GamePlaceDunjeon.h"
+#include "../Manager/EntityManager.h"
+
 using namespace std;
 
 GamePlaceDunjeon::GamePlaceDunjeon() {
@@ -16,8 +18,10 @@ void GamePlaceDunjeon::ShowPlaceName() {
 
 void GamePlaceDunjeon::EnterPlace() {
 	cout << "~~~~~~~~던전~~~~~~~~" <<endl;
+	Fight();
 };
 
 bool GamePlaceDunjeon::Fight() {
+	cout<<"던전에 들어왔습니다!"<<endl;
 	return true;
 };

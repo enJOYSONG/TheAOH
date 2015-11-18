@@ -12,5 +12,4 @@ public :
 	bool Fight();
 private:
 	PLACE_TYPE place_type_;
-
 };

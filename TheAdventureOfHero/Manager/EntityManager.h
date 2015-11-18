@@ -4,6 +4,7 @@
 // Have Hero Object
 // Create Monster Object by Hero's level
 class AliveObjectHero;
+class AliveObjectMonster;
 class EntityManager {
 public:
 	inline static EntityManager* GetInstance() {
@@ -48,7 +49,21 @@ public:
 
 	int GetHeroGold();
 	void SetHeroGold(int GOLD);
+
+	//Monster stat getter setter
+	int GetMonsterHP();
+	void SetMonsterHP(int HP);
 	
+	int GetMonsterAttack();
+	void SetMonsterAttack(int ATK);
+
+	int GetMonsterDeffense();
+	void SetMonsterDeffense(int DEF);
+
+	//check state
+	bool CheckHeroState();
+	bool CheckMonsterState();
+
 private:
 	static EntityManager* sEntityManager;
 	EntityManager(){};
@@ -57,5 +72,8 @@ private:
 	//이 변수는 캐릭터를 선택할때마다 바뀜
 	//후에 object hero map 만들 예정
 	AliveObjectHero* first_hero_;
+	//이 변수는 몬스터가 선택할때마다 바뀜
+	//후에 object monster map 만들 예정
+	AliveObjectMonster* first_monster_;
 	
 };

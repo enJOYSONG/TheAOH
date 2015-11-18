@@ -1,15 +1,15 @@
 #include "AliveObjectMonster.h"
 
 AliveObjectMonster::AliveObjectMonster() {
-
+	HP_ = 10;
+	ATK_ = 10;
+	DEF_ = 3;
 };
 
-AliveObjectMonster::AliveObjectMonster(int HP, int SP, int ATK, int DEF, int Gold) {
+AliveObjectMonster::AliveObjectMonster(int HP, int ATK, int DEF) {
 	HP_ = HP;
-	SP_ = SP;
 	ATK_ = ATK;
 	DEF_ = DEF;
-	Gold_ = Gold;
 };
 
 AliveObjectMonster::~AliveObjectMonster() {

@@ -1,6 +1,7 @@
 #include <iostream>
 #include "EntityManager.h"
 #include "../Hero/AliveObjectHero.h"
+#include "../Monster/AliveObjectMonster.h"
 
 using namespace std;
 
@@ -8,8 +9,10 @@ EntityManager* EntityManager::sEntityManager = NULL;
 
 void EntityManager::Init() {
 	first_hero_ = new AliveObjectHero;
+	first_monster_ = new AliveObjectMonster;
 };
 
+/*************Hero getter setter***********************/
 const char* EntityManager::GetHeroName() {
 	return first_hero_->GetName();
 };
@@ -77,4 +80,38 @@ int EntityManager::GetHeroGold() {
 
 void EntityManager::SetHeroGold(int GOLD) {
 	first_hero_->SetGold(GOLD);
+};
+
+/***************Moster getter setter******************/
+int EntityManager::GetMonsterHP() {
+	return first_monster_->GetHP();
+};
+
+void EntityManager::SetMonsterHP(int HP) {
+	first_monster_->SetHP(HP);
+};
+
+int EntityManager::GetMonsterAttack() {
+	return first_monster_->GetAttack();
+};
+
+void EntityManager::SetMonsterAttack(int ATK) {
+	first_monster_->SetAttack(ATK);
+};
+
+int EntityManager::GetMonsterDeffense() {
+	return first_monster_->GetDeffense();
+};
+
+void EntityManager::SetMonsterDeffense(int DEF) {
+	first_monster_->SetDeffense(DEF);
+};
+
+/*************Check State********************/
+bool EntityManager::CheckHeroState() {
+	return first_hero_->CheckState();
+};
+
+bool EntityManager::CheckMonsterState() {
+	return first_monster_->CheckState();
 };
