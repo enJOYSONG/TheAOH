@@ -1,6 +1,7 @@
 //GamePlace Inn
 #include "../Base/BaseGameWorldPlace.h"
 
+class BattleManager;
 class GamePlaceDunjeon : public IBaseGameWorldPlace {
 public :
 	GamePlaceDunjeon();

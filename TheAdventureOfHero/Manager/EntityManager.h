@@ -3,6 +3,8 @@
 // Entity Manager!
 // Have Hero Object
 // Create Monster Object by Hero's level
+#include <map>
+
 class AliveObjectHero;
 class AliveObjectMonster;
 
@@ -10,6 +12,11 @@ class AliveObjectMonster;
 
 class EntityManager {
 public:
+	EntityManager(){};
+	~EntityManager(){};
+	void Init();
+	void DeInit();
+
 	inline static EntityManager* GetInstance() {
 		if (NULL == sEntityManager) {
 			sEntityManager = new EntityManager();
@@ -52,6 +59,13 @@ public:
 
 	int GetHeroGold();
 	void SetHeroGold(int GOLD);
+	
+
+	//Setting Monster map
+	void SetMonsterMap();
+
+	//Setting first_monster
+	void SetFirstMonsterRandom();
 
 	//Monster stat getter setter
 	int GetMonsterHP();
@@ -67,11 +81,13 @@ public:
 	bool CheckHeroState();
 	bool CheckMonsterState();
 
+	//for battle hp decrease
+	void DecreaseHeroHp(int d_hp);
+	void DecreaseMonsterHp(int d_hp);
+
 private:
 	static EntityManager* sEntityManager;
-	EntityManager(){};
-	~EntityManager(){};
-	void Init();
+	
 	//이 변수는 캐릭터를 선택할때마다 바뀜
 	//후에 object hero map 만들 예정
 	AliveObjectHero* first_hero_;
@@ -79,4 +95,6 @@ private:
 	//후에 object monster map 만들 예정
 	AliveObjectMonster* first_monster_;
 	
+	//monster map
+	std::map<int, AliveObjectMonster*> monster_map_;
 };

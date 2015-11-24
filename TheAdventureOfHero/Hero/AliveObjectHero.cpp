@@ -39,7 +39,10 @@ bool AliveObjectHero::AttackNormal() {
 };
 
 bool AliveObjectHero::CheckState() {
-	return true;
+	if(HP_ > 0 && Gold_ >= 0)
+		return true;
+	else 
+		return false;
 };
 
 bool AliveObjectHero::AttackSpecial() {

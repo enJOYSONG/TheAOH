@@ -1,6 +1,6 @@
 #include <iostream>
 #include "GamePlaceDunjeon.h"
-#include "../Manager/EntityManager.h"
+#include "../Manager/BattleManager.h"
 
 using namespace std;
 
@@ -22,6 +22,7 @@ void GamePlaceDunjeon::EnterPlace() {
 };
 
 bool GamePlaceDunjeon::Fight() {
-	cout<<"던전에 들어왔습니다!"<<endl;
+	BattleManager battle_manager;
+	battle_manager.Fight();
 	return true;
 };

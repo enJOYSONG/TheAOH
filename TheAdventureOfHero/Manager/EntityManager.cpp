@@ -9,7 +9,24 @@ EntityManager* EntityManager::sEntityManager = NULL;
 
 void EntityManager::Init() {
 	first_hero_ = new AliveObjectHero;
-	first_monster_ = new AliveObjectMonster;
+	first_monster_ = NULL;
+
+	SetMonsterMap();
+};
+
+void EntityManager::DeInit() {
+	delete first_hero_;
+	if(first_monster_ != NULL) 
+		delete first_monster_;
+
+	map< int, AliveObjectMonster* >::iterator Iter_Pos;
+	for( Iter_Pos = monster_map_.begin(); Iter_Pos != monster_map_.end(); ++Iter_Pos)
+	{
+		delete Iter_Pos->second;
+	}
+
+
+	delete sEntityManager;
 };
 
 /*************Hero getter setter***********************/
@@ -82,6 +99,19 @@ void EntityManager::SetHeroGold(int GOLD) {
 	first_hero_->SetGold(GOLD);
 };
 
+/***************Set Monster map********************/
+void EntityManager::SetMonsterMap() {
+	monster_map_[MONSTER_KOBOLD] = new AliveObjectMonster(10, 10, 3, MONSTER_KOBOLD);
+	monster_map_[MONSTER_GOBLIN] = new AliveObjectMonster(10, 10, 0, MONSTER_GOBLIN);
+	monster_map_[MONSTER_OGRE] = new AliveObjectMonster(20, 15, 5, MONSTER_OGRE);
+};
+
+//Setting first_monster
+void EntityManager::SetFirstMonsterRandom() {
+	int index = rand() % 3 + 1;
+	first_monster_ = monster_map_.at(index);
+}
+
 /***************Moster getter setter******************/
 int EntityManager::GetMonsterHP() {
 	return first_monster_->GetHP();
@@ -114,4 +144,15 @@ bool EntityManager::CheckHeroState() {
 
 bool EntityManager::CheckMonsterState() {
 	return first_monster_->CheckState();
+};
+
+/************for battle hp decrease***********/
+void EntityManager::DecreaseHeroHp(int d_hp) {
+	int hp = first_hero_->GetHP();
+	first_hero_->SetHP(hp - d_hp);
+};
+
+void EntityManager::DecreaseMonsterHp(int d_hp) {
+	int hp = first_monster_->GetHP();
+	first_monster_->SetHP(hp - d_hp);
 };

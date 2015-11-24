@@ -138,6 +138,7 @@
     <ClInclude Include="Base\BaseAliveObject.h" />
     <ClInclude Include="Base\BaseGameWorldPlace.h" />
     <ClInclude Include="Hero\AliveObjectHero.h" />
+    <ClInclude Include="Manager\BattleManager.h" />
     <ClInclude Include="Manager\EntityManager.h" />
     <ClInclude Include="Manager\GameManager.h" />
     <ClInclude Include="Manager\PlaceManager.h" />
@@ -149,6 +150,7 @@
   <ItemGroup>
     <ClCompile Include="Hero\AliveObjectHero.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Manager\BattleManager.cpp" />
     <ClCompile Include="Manager\EntityManager.cpp" />
     <ClCompile Include="Manager\GameManager.cpp" />
     <ClCompile Include="Manager\PlaceManager.cpp" />

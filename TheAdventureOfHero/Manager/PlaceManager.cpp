@@ -22,6 +22,16 @@ void PlaceManager::Init() {
 	place_map_[PLACE_PUB] = placePub_;
 };
 
+void PlaceManager::DeInit() {
+	map< int, IBaseGameWorldPlace* >::iterator Iter_Pos;
+	for( Iter_Pos = place_map_.begin(); Iter_Pos != place_map_.end(); ++Iter_Pos)
+	{
+		delete Iter_Pos->second;
+	}
+
+	delete sPlaceManager;
+};
+
 IBaseGameWorldPlace* PlaceManager::GetPlaceByKey(int place_type) {
 	switch(place_type) {
 		case NONE_PLACE:

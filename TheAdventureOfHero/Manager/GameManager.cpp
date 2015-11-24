@@ -10,7 +10,11 @@ GameManager::GameManager() {
 };
 
 GameManager::~GameManager() {
+	place_manager_->DeInit();
+	place_manager_ = NULL;
 
+	entity_manager_->DeInit();
+	entity_manager_ = NULL;
 };
 
 void GameManager::Init() {

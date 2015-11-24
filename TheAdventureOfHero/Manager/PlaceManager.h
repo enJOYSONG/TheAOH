@@ -8,6 +8,11 @@ class IBaseGameWorldPlace;
 class EntityManager;
 class PlaceManager {
 public:
+	PlaceManager(){};
+	~PlaceManager(){};
+	void Init();
+	void DeInit();
+
 //sington object - place manager
 	inline static PlaceManager* GetInstance() {
 		if (NULL == sPlaceManager) {
@@ -35,9 +40,5 @@ public:
 
 private:
 	static PlaceManager* sPlaceManager;
-	PlaceManager(){};
-	~PlaceManager(){};
-	void Init();
-	
 	std::map<int, IBaseGameWorldPlace*> place_map_;
 };

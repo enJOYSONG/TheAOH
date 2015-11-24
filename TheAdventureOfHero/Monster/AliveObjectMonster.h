@@ -3,10 +3,18 @@
 
 #include "../Base/BaseAliveObject.h"
 
+//set monster type by enum
+enum MONSTER_TYPE {
+	NONE_TYPE = 0,
+	MONSTER_KOBOLD = 1,
+	MONSTER_GOBLIN = 2,
+	MONSTER_OGRE = 3,
+};
+
 class AliveObjectMonster : public IBaseAliveObject {
 public:
 	AliveObjectMonster();
-	AliveObjectMonster(int HP, int ATK, int DEF);
+	AliveObjectMonster(int HP, int ATK, int DEF, MONSTER_TYPE monster_type);
 	virtual ~AliveObjectMonster();
 
 	virtual bool AttackNormal();
@@ -24,12 +32,17 @@ public:
 	inline int GetDeffense() { return DEF_; }
 	inline void SetDeffense(int DEF) { DEF_ = DEF; }
 
+	inline MONSTER_TYPE GetMonsterType() { return monster_type_; }
+	inline void SetMonsterType(MONSTER_TYPE monster_type) { monster_type_ = monster_type; }
+
 private:
-//capabilities 
+	//capabilities 
 	int HP_;
 	//int SP_;
 	int ATK_;
 	int DEF_;
+
+	MONSTER_TYPE monster_type_;
 //items
 	//골드는 용사의 레벨*2
 	//경험치는 용사의 레벨*1.5

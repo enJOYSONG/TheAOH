@@ -66,7 +66,7 @@ void GamePlacePub::HealHP() {
 		cout<<"HP È¸º¹"<<endl;
 
 		cout<<"Gold : "<<ENTITY_MANAGER()->GetHeroGold()<<endl;
-		cout<<"SP : "<<ENTITY_MANAGER()->GetHeroHP()<<endl;
+		cout<<"HP : "<<ENTITY_MANAGER()->GetHeroHP()<<endl;
 		EnterPlace();
 	}
 	else {
