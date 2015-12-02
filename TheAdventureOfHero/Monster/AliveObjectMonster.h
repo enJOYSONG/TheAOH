@@ -14,7 +14,7 @@ enum MONSTER_TYPE {
 class AliveObjectMonster : public IBaseAliveObject {
 public:
 	AliveObjectMonster();
-	AliveObjectMonster(int HP, int ATK, int DEF, MONSTER_TYPE monster_type);
+	AliveObjectMonster(int HP, int ATK, int DEF, int Level, MONSTER_TYPE monster_type, char* monster_name);
 	virtual ~AliveObjectMonster();
 
 	virtual bool AttackNormal();
@@ -32,17 +32,23 @@ public:
 	inline int GetDeffense() { return DEF_; }
 	inline void SetDeffense(int DEF) { DEF_ = DEF; }
 
+	inline int GetLevel() { return Level_; }
+	inline void SetLevel(int LEV) { Level_ = LEV; }
+
 	inline MONSTER_TYPE GetMonsterType() { return monster_type_; }
 	inline void SetMonsterType(MONSTER_TYPE monster_type) { monster_type_ = monster_type; }
 
+	inline char* GetName() { return monster_name_; }
 private:
 	//capabilities 
 	int HP_;
 	//int SP_;
 	int ATK_;
 	int DEF_;
+	int Level_;
 
 	MONSTER_TYPE monster_type_;
+	char* monster_name_;
 //items
 	//골드는 용사의 레벨*2
 	//경험치는 용사의 레벨*1.5

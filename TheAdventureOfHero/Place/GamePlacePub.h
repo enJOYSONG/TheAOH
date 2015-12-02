@@ -12,7 +12,7 @@ public :
 	void SelectMenu();
 
 	//HPÈ¸º¹
-	void HealHP();
+	void SpecificActionByPlace();
 private:
 	PLACE_TYPE place_type_;
 

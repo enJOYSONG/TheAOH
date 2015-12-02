@@ -10,7 +10,7 @@ public :
 	virtual void ShowPlaceName();
 	virtual void EnterPlace();
 
-	bool Fight();
+	void SpecificActionByPlace();
 private:
 	PLACE_TYPE place_type_;
 };

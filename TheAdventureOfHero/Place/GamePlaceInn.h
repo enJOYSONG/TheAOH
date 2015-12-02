@@ -10,7 +10,7 @@ public :
 	virtual void ShowPlaceName();
 	virtual void EnterPlace();
 	void SelectMenu();
-	void HealSP();
+	void SpecificActionByPlace();
 
 private:
 	PLACE_TYPE place_type_;

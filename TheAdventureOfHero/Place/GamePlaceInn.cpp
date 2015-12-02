@@ -32,7 +32,7 @@ void GamePlaceInn::SelectMenu() {
 
 	switch(menu) {
 		case 1:
-			HealSP();
+			SpecificActionByPlace();
 			break;
 		case 2:
 			break;
@@ -49,7 +49,7 @@ void GamePlaceInn::EnterPlace() {
 	
 };
 
-void GamePlaceInn::HealSP() {
+void GamePlaceInn::SpecificActionByPlace() {
 	int hero_gold = ENTITY_MANAGER()->GetHeroGold();
 	int hero_sp = EntityManager::GetInstance()->GetHeroSP();
 	//회복할 sp양

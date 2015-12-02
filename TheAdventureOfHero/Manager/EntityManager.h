@@ -62,7 +62,7 @@ public:
 	
 
 	//Setting Monster map
-	void SetMonsterMap();
+	void SetMonsterMap(int hero_level);
 
 	//Setting first_monster
 	void SetFirstMonsterRandom();
@@ -76,6 +76,11 @@ public:
 
 	int GetMonsterDeffense();
 	void SetMonsterDeffense(int DEF);
+
+	int GetMonsterLevel();
+	void SetMonsterLevel(int LEV);
+
+	char* GetMonsterName();
 
 	//check state
 	bool CheckHeroState();

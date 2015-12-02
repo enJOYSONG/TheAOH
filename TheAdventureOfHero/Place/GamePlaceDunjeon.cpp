@@ -18,11 +18,10 @@ void GamePlaceDunjeon::ShowPlaceName() {
 
 void GamePlaceDunjeon::EnterPlace() {
 	cout << "~~~~~~~~´øÀü~~~~~~~~" <<endl;
-	Fight();
+	SpecificActionByPlace();
 };
 
-bool GamePlaceDunjeon::Fight() {
+void GamePlaceDunjeon::SpecificActionByPlace() {
 	BattleManager battle_manager;
 	battle_manager.Fight();
-	return true;
 };

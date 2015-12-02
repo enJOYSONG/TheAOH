@@ -32,7 +32,7 @@ void GamePlacePub::SelectMenu() {
 
 	switch(menu) {
 		case 1:
-			HealHP();
+			SpecificActionByPlace();
 			break;
 		case 2:
 			break;
@@ -48,7 +48,7 @@ void GamePlacePub::EnterPlace() {
 	SelectMenu();
 }
 
-void GamePlacePub::HealHP() {
+void GamePlacePub::SpecificActionByPlace() {
 	int hero_gold = ENTITY_MANAGER()->GetHeroGold();
 	int hero_hp = ENTITY_MANAGER()->GetHeroHP();
 	//회복할 hp양

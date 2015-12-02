@@ -13,13 +13,19 @@ void BattleManager::Fight() {
 		cout<<"용사의 HP가 부족합니다.\n";
 	}
 	else {
-		cout<<"던전에 들어왔습니다!";
-		ENTITY_MANAGER()->SetMonsterMap();
+		cout<<"던전에 들어왔습니다!\n";
+		ENTITY_MANAGER()->SetMonsterMap(ENTITY_MANAGER()->GetHeroLevel());
 		ENTITY_MANAGER()->SetFirstMonsterRandom();
 		
 		//PT에 몬스터 레벨관련이 없다?!
 		//일단 용사 선공격으로 해놓음.
 		while(true) {
+			if(ENTITY_MANAGER()->GetHeroLevel() >= ENTITY_MANAGER()->GetMonsterLevel()) {
+				monster_state_ = HitMonster();
+			}
+			else {
+				hero_state_ = HitHero();
+			}
 			if(true == hero_state_) {
 				monster_state_ = HitMonster();
 			}
@@ -40,7 +46,7 @@ void BattleManager::Fight() {
 };
 
 bool BattleManager::HitMonster() {
-	cout<<"용사가 몬스터를 쳤다!\n";
+	cout<<"용사가 "<<ENTITY_MANAGER()->GetMonsterName()<<"을(를) 쳤다!\n";
 	int hero_attack = ENTITY_MANAGER()->GetHeroAttack();
 	ENTITY_MANAGER()->DecreaseMonsterHp(hero_attack);
 	cout<<"몬스터의 HP : "<<ENTITY_MANAGER()->GetMonsterHP()<<"\n";
@@ -48,7 +54,7 @@ bool BattleManager::HitMonster() {
 };
 
 bool BattleManager::HitHero() {
-	cout<<"몬스터가 용사를 쳤다!\n";
+	cout<<ENTITY_MANAGER()->GetMonsterName()<<"가(이) 용사를 쳤다!\n";
 	int monster_attack = ENTITY_MANAGER()->GetMonsterAttack();
 	ENTITY_MANAGER()->DecreaseHeroHp(monster_attack);
 	cout<<"용사의 HP : "<<ENTITY_MANAGER()->GetHeroHP()<<"\n";

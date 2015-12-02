@@ -10,8 +10,6 @@ EntityManager* EntityManager::sEntityManager = NULL;
 void EntityManager::Init() {
 	first_hero_ = new AliveObjectHero;
 	first_monster_ = NULL;
-
-	SetMonsterMap();
 };
 
 void EntityManager::DeInit() {
@@ -100,10 +98,18 @@ void EntityManager::SetHeroGold(int GOLD) {
 };
 
 /***************Set Monster map********************/
-void EntityManager::SetMonsterMap() {
-	monster_map_[MONSTER_KOBOLD] = new AliveObjectMonster(10, 10, 3, MONSTER_KOBOLD);
-	monster_map_[MONSTER_GOBLIN] = new AliveObjectMonster(10, 10, 0, MONSTER_GOBLIN);
-	monster_map_[MONSTER_OGRE] = new AliveObjectMonster(20, 15, 5, MONSTER_OGRE);
+void EntityManager::SetMonsterMap(int hero_level) {
+	int op = rand() % 6 - 3;
+	int monster_level = hero_level + op;
+
+	if(monster_level <= 0)
+		monster_level = 1;
+
+	monster_map_[MONSTER_KOBOLD] = new AliveObjectMonster(10, 10, 3, monster_level, MONSTER_KOBOLD, "코볼트");
+	op = rand() % 6 - 3;
+	monster_map_[MONSTER_GOBLIN] = new AliveObjectMonster(10, 10, 0, monster_level, MONSTER_GOBLIN, "고블린");
+	op = rand() % 6 - 3;
+	monster_map_[MONSTER_OGRE] = new AliveObjectMonster(20, 15, 5, monster_level, MONSTER_OGRE, "오우거");
 };
 
 //Setting first_monster
@@ -135,6 +141,18 @@ int EntityManager::GetMonsterDeffense() {
 
 void EntityManager::SetMonsterDeffense(int DEF) {
 	first_monster_->SetDeffense(DEF);
+};
+
+int EntityManager::GetMonsterLevel() {
+	return first_monster_->GetLevel();
+};
+
+void EntityManager::SetMonsterLevel(int LEV) {
+	first_monster_->SetLevel(LEV);
+};
+
+char* EntityManager::GetMonsterName() {
+	return first_monster_->GetName();
 };
 
 /*************Check State********************/
