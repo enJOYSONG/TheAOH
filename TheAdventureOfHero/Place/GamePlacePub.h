@@ -8,11 +8,12 @@ public :
 	virtual ~GamePlacePub();
 	inline PLACE_TYPE getType() { return place_type_ ; }
 	virtual void ShowPlaceName();
-	virtual void EnterPlace();
-	void SelectMenu();
+	virtual bool EnterPlace();
+	bool SelectMenu();
+	virtual void SpecificActionByPlace();
+	virtual MovePlaceObject* MoveOtherPlace();
+	virtual std::map<PLACE_TYPE,int>* GetPlaceMap() { return place_map_; }
 
-	//HP회복
-	void SpecificActionByPlace();
 private:
 	PLACE_TYPE place_type_;
 
@@ -21,4 +22,5 @@ private:
 	//hp 회복량
 	//기본 20(임시)
 	int recovery_trend_hp_;
+	std::map<PLACE_TYPE,int>* place_map_;
 };

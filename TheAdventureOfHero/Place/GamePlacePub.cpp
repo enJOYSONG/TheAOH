@@ -7,12 +7,14 @@ GamePlacePub::GamePlacePub() {
 	place_type_ = PLACE_PUB;
 	pay_ = 5;
 	recovery_trend_hp_ = 20;
+	place_map_ = new std::map<PLACE_TYPE,int>;
 };
 
 GamePlacePub::GamePlacePub(int pay, int recovery_trend_hp) {
 	place_type_ = PLACE_INN;
 	pay_ = pay;
 	recovery_trend_hp_ = recovery_trend_hp;
+	place_map_ = new std::map<PLACE_TYPE,int>;
 };
 
 GamePlacePub::~GamePlacePub() {
@@ -23,29 +25,39 @@ void GamePlacePub::ShowPlaceName() {
 	cout<<"주 점!"<<endl;
 };
 
-void GamePlacePub::SelectMenu() {
+bool GamePlacePub::SelectMenu() {
 	int menu;
-	cout<<"1. HP 회복"<<endl;
-	cout<<"2. 나가기"<<endl;
-	
-	cin>>menu;
+	bool isMovePlace = false;
 
-	switch(menu) {
-		case 1:
-			SpecificActionByPlace();
-			break;
-		case 2:
-			break;
-		default:
-			cout<<"다시 선택"<<endl;
-			EnterPlace();
+	while(true) {
+		cout<<"1. HP 회복"<<endl;
+		cout<<"2. 장소 이동"<<endl;
+		cout<<"3. 나가기"<<endl;
+	
+		cin>>menu;
+
+		switch(menu) {
+			case 1:
+				SpecificActionByPlace();
+				break;
+			case 2:
+				isMovePlace = true;
+				break;
+			case 3:
+				break;
+			default:
+				cout<<"다시 선택"<<endl;
+		}
+		if(menu != 1)
 			break;
 	}
+	
+	return isMovePlace;
 };
 
-void GamePlacePub::EnterPlace() {
+bool GamePlacePub::EnterPlace() {
 	cout << "~~~~~~~~주점~~~~~~~~" <<endl;
-	SelectMenu();
+	return SelectMenu();
 }
 
 void GamePlacePub::SpecificActionByPlace() {
@@ -67,9 +79,50 @@ void GamePlacePub::SpecificActionByPlace() {
 
 		cout<<"Gold : "<<ENTITY_MANAGER()->GetHeroGold()<<endl;
 		cout<<"HP : "<<ENTITY_MANAGER()->GetHeroHP()<<endl;
-		EnterPlace();
 	}
 	else {
 		cout<<"골드가 부족합니다."<<endl;
 	}
 };
+
+MovePlaceObject* GamePlacePub::MoveOtherPlace() {
+	cout << "이동할 장소를 선택하세요." << endl;
+	map< PLACE_TYPE, int >::iterator Iter_Pos;
+	int menu = 0;
+	for( Iter_Pos = place_map_->begin(); Iter_Pos != place_map_->end(); ++Iter_Pos)
+	{
+		switch(Iter_Pos->first) {
+		case NONE_PLACE:
+			break;
+		case PLACE_INN:
+			cout << "여관, 필요 SP : " << Iter_Pos->second <<endl;
+			cout << "이동을 원한다면 " << PLACE_INN <<"을(를) 누르세요."<<endl;
+			break;
+		case PLACE_DUNGEON:
+			cout << "던전, 필요 SP : " << Iter_Pos->second <<endl;
+			cout << "이동을 원한다면 " << PLACE_DUNGEON <<"을(를) 누르세요."<<endl;
+			break;
+		case PLACE_PUB:
+			cout << "주점, 필요 SP : " << Iter_Pos->second <<endl;
+			cout << "이동을 원한다면 " << PLACE_PUB <<"을(를) 누르세요."<<endl;
+			break;
+		default:
+			break;
+		}
+	}
+
+	cin>>menu;
+
+	switch(menu) {
+	case PLACE_INN:
+	case PLACE_DUNGEON:
+	case PLACE_PUB:
+		break;
+	default:
+		cout<<"다시 입력하세요."<<endl;
+		MoveOtherPlace();
+		break;
+	}
+
+	return new MovePlaceObject((PLACE_TYPE)menu, place_map_->at((PLACE_TYPE)menu));
+}

@@ -20,6 +20,27 @@ void PlaceManager::Init() {
 
 	IBaseGameWorldPlace* placePub_ = new GamePlacePub();
 	place_map_[PLACE_PUB] = placePub_;
+
+	/*place_map_[PLACE_INN]->GetPlaceMap().insert(std::pair<int, MovePlaceObject*>(0, new MovePlaceObject(2, PLACE_DUNGEON)));
+	place_map_[PLACE_INN]->GetPlaceMap().insert(std::pair<int, MovePlaceObject*>(1, new MovePlaceObject(2, PLACE_PUB)));
+
+	place_map_[PLACE_PUB]->GetPlaceMap().insert(std::pair<int, MovePlaceObject*>(0, new MovePlaceObject(2, PLACE_INN)));
+	place_map_[PLACE_PUB]->GetPlaceMap().insert(std::pair<int, MovePlaceObject*>(1, new MovePlaceObject(3, PLACE_DUNGEON)));
+
+	place_map_[PLACE_DUNGEON]->GetPlaceMap().insert(std::pair<int, MovePlaceObject*>(0, new MovePlaceObject(2,PLACE_INN)));
+	place_map_[PLACE_DUNGEON]->GetPlaceMap().insert(std::pair<int, MovePlaceObject*>(1, new MovePlaceObject(3, PLACE_PUB)));*/
+
+	place_map_[PLACE_INN]->GetPlaceMap()->insert(std::pair<PLACE_TYPE, int>(PLACE_DUNGEON, 2));
+	place_map_[PLACE_INN]->GetPlaceMap()->insert(std::pair<PLACE_TYPE, int>(PLACE_PUB, 2));
+
+	place_map_[PLACE_PUB]->GetPlaceMap()->insert(std::pair<PLACE_TYPE, int>(PLACE_INN, 2));
+	place_map_[PLACE_PUB]->GetPlaceMap()->insert(std::pair<PLACE_TYPE, int>(PLACE_DUNGEON, 3));
+
+	place_map_[PLACE_DUNGEON]->GetPlaceMap()->insert(std::pair<PLACE_TYPE, int>(PLACE_INN, 2));
+	place_map_[PLACE_DUNGEON]->GetPlaceMap()->insert(std::pair<PLACE_TYPE, int>(PLACE_PUB, 3));
+
+	
+
 };
 
 void PlaceManager::DeInit() {
@@ -47,7 +68,12 @@ IBaseGameWorldPlace* PlaceManager::GetPlaceByKey(int place_type) {
 	};
 };
 
-void PlaceManager::GoPlaceByKey(int place_type) {
+bool PlaceManager::GoPlaceByKey(int place_type) {
 	IBaseGameWorldPlace* place = place_map_[place_type];
-	place->EnterPlace();
+	bool isMovePlace = place->EnterPlace();
+	if(isMovePlace) {
+		move_place = place->MoveOtherPlace();
+		ENTITY_MANAGER()->SetHeroSP(ENTITY_MANAGER()->GetHeroSP() - move_place->GetDistance());
+	}
+	return isMovePlace;
 };

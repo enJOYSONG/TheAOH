@@ -6,6 +6,7 @@
 
 class IBaseGameWorldPlace;
 class EntityManager;
+class MovePlaceObject;
 class PlaceManager {
 public:
 	PlaceManager(){};
@@ -36,9 +37,11 @@ public:
 	
 	//return place by place type enum
 	IBaseGameWorldPlace* GetPlaceByKey(int place_type);
-	void GoPlaceByKey(int place_type);
+	bool GoPlaceByKey(int place_type);
+	MovePlaceObject* GetMovePlace() { return move_place; };
 
 private:
 	static PlaceManager* sPlaceManager;
 	std::map<int, IBaseGameWorldPlace*> place_map_;
+	MovePlaceObject* move_place;
 };

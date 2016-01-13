@@ -8,9 +8,11 @@ public :
 	virtual ~GamePlaceInn();
 	inline PLACE_TYPE getType() { return place_type_; }
 	virtual void ShowPlaceName();
-	virtual void EnterPlace();
-	void SelectMenu();
-	void SpecificActionByPlace();
+	virtual bool EnterPlace();
+	bool SelectMenu();
+	virtual void SpecificActionByPlace();
+	virtual MovePlaceObject* MoveOtherPlace();
+	virtual std::map<PLACE_TYPE,int>* GetPlaceMap() { return place_map_; }
 
 private:
 	PLACE_TYPE place_type_;
@@ -20,5 +22,7 @@ private:
 	//sp 회복량
 	//기본 20(임시)
 	int recovery_trend_sp_;
+	std::map<PLACE_TYPE,int>* place_map_;
+
 
 };

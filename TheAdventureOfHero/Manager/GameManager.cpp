@@ -32,15 +32,26 @@ void GameManager::ShowMenu() {
 
 void GameManager::SelectMenu() {
 	int menu = 0;
-	cin >> menu;
+	bool isMove = false;
 
-	switch(menu) {
-		case PLACE_INN:
-		case PLACE_DUNGEON:
-		case PLACE_PUB:
-			place_manager_->GoPlaceByKey(menu);
+	while(true) {
+		if(isMove)
+			menu = place_manager_->GetMovePlace()->GetPlace();
+		
+		else 
+			cin >> menu;
+
+		switch(menu) {
+			case PLACE_INN:
+			case PLACE_DUNGEON:
+			case PLACE_PUB:
+				isMove = place_manager_->GoPlaceByKey(menu);
+				break;
+			default:
+				cout<<"다시 선택"<<endl;
+				break;
+		}
+		if(!isMove)
 			break;
-		default:
-			cout<<"다시 선택"<<endl;
 	}
 };

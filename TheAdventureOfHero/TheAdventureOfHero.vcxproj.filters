@@ -18,11 +18,11 @@
     <Filter Include="소스 파일\Manager">
       <UniqueIdentifier>{91c334ec-92bf-4495-a3f7-e29407b9f37b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\Place">
-      <UniqueIdentifier>{d871faed-cf88-42bf-8314-ac761340be5b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="소스 파일\Monster">
       <UniqueIdentifier>{b79bd7e5-e8b5-46b7-bfb6-ce369003ecde}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Place">
+      <UniqueIdentifier>{d871faed-cf88-42bf-8314-ac761340be5b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
